@@ -54,7 +54,11 @@ angular.module("ui.router.modal", ["ui.router"])
 					openModal.result['finally'](function() {
 						if (thisModal === openModal) {
 							// Dialog was closed via $uibModalInstance.close/dismiss, go to our parent state
-							$state.go($state.get("^", stateName).name);
+							let parentState = $state.get("^", stateName)
+							while(parentState && parentState.abstract) {
+								parentState = $state.get("^", parentState.name)
+							}
+							$state.go(parentState.name);
 						}
 					});
 				};
