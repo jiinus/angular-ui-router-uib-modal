@@ -8,8 +8,8 @@ declare module 'angular' {
 			animation?: boolean | string;
 			backdrop?: boolean | string;
 			keyboard?: boolean | string;
-			windowClass?: string[];
-			windowTopClass?: string[];
+			windowClass?: string;
+			windowTopClass?: string;
 		}
 	}
 }
